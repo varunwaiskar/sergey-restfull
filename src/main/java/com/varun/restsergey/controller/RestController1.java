@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.varun.restsergey.dto.UserDto;
@@ -29,6 +30,12 @@ public class RestController1{
 	@Autowired
 	UserService userService;
 
+	@PostMapping("/")
+	public String homeMethod() {
+		return "reached Home Controller";
+	}
+	
+	
 	@GetMapping("/users")
 	public List<UserResponse> getUsers() {
 
