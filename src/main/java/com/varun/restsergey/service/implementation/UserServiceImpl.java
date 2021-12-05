@@ -95,10 +95,10 @@ public class UserServiceImpl implements UserService {
 		List<UserEntity> userList = repo.findAll();
 		
 		List<UserDto> dtoList = new ArrayList<UserDto>();
-		
+		ModelMapper mapper = new ModelMapper();
 		for(UserEntity en : userList) {
 			UserDto dto = new UserDto();
-			BeanUtils.copyProperties(en, dto);
+			dto = mapper.map(en,UserDto.class);
 			dtoList.add(dto);
 		}
 		

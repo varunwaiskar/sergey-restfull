@@ -42,10 +42,10 @@ public class RestController1{
 		List<UserDto> dtoList = userService.getUser();
 
 		List<UserResponse> respList = new ArrayList<UserResponse>();
-
+		ModelMapper mapper = new ModelMapper();
 		for (UserDto dto : dtoList) {
 			UserResponse response = new UserResponse();
-			BeanUtils.copyProperties(dto, response);
+			response = mapper.map(dto, UserResponse.class);
 			respList.add(response);
 		}
 
