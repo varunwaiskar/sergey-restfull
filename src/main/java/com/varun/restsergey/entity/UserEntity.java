@@ -42,7 +42,7 @@ public class UserEntity implements Serializable {
 	
 	private Boolean emailVerificationStatus = false;
 
-	@OneToMany(mappedBy =  "userDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy =  "userDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<AddressEntity> address;
 
 	public long getId() {
